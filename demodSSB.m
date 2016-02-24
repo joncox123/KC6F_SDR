@@ -1,7 +1,6 @@
 function [rx_demod, IQ_rx_bb] = demodSSB(IQ_rx_IF, hDelay, hHilbert, hSRC, F_IF, F_IF_BW, F_IF_LowFreqCutOff, Tt, SSB_Sign)
 %demodSSB Demodulate SSB using hilbert transform method
-%   SSB_Sign = +1 for LSB and -1 for USB
-
+    %   SSB_Sign = +1 for LSB and -1 for USB
     SSB_Sign = sign(SSB_Sign);
 
     % Shift to baseband
@@ -11,7 +10,7 @@ function [rx_demod, IQ_rx_bb] = demodSSB(IQ_rx_IF, hDelay, hHilbert, hSRC, F_IF,
     IQ_rx_bb = step(hSRC, IQ_rx_bb);
 
     % Demodulate SSB using Hilbert transform
-    rx_demod = step(hDelay, real(IQ_rx_bb)) + SSB_Sign*filter(hHilbert, imag(IQ_rx_bb));
+    rx_demod = step(hDelay, real(IQ_rx_bb)) + SSB_Sign*step(hHilbert, imag(IQ_rx_bb));
         
 end
 

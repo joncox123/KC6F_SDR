@@ -80,8 +80,10 @@ function Main_Event_Loop(dspIQ_RX, dspAudioIn, dspIQ_TX, dspAudioOut, params)
     
     % Hilbert transform filter (90 deg phase shift)
     N_hilbert_order = 100;
-    hHilbert = design(fdesign.hilbert('N,TW',N_hilbert_order,0.025), 'equiripple');
+    hHilbertDesign = design(fdesign.hilbert('N,TW',N_hilbert_order,0.025), 'equiripple');
     %fvtool(hHilbert,'magnitudedisplay','zero-phase','frequencyrange','[-pi, pi)')
+    hHilbert = dsp.FIRFilter;
+    hHilbert.Numerator = hHilbertDesign.Numerator;
     
     % Delay to counteract the Hilbert filter
     hDelay = dsp.Delay(N_hilbert_order/2);
