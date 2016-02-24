@@ -8,7 +8,7 @@ KC6F SDR is written in Matlab, and can run on Mac, Linux and Windows. With the M
 System Requirements:
 Softrock Ensemble receiver or transceiver (RXTX)
 64-bit Windows
-64-bit Matlab with DSP System Toolbox
+Two sound cards, one of which must support 192 kHz sampling rate
 
 Todo:
 1. Compile with Matlab Compiler for wider distribution
@@ -17,3 +17,5 @@ Todo:
 4. Add AM and CW analog modes
 5. Add PSK
 6. Add automatic CW transmitter and decoder
+
+![Screen shot of KC6F SDR on Windows](screenShot.jpg?raw=true "Screen Shot")
