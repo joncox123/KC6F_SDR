@@ -17,5 +17,6 @@ Todo:
 4. Add AM and CW analog modes
 5. Add PSK
 6. Add automatic CW transmitter and decoder
+7. Add support for adaptive filtering with second receiver and antenna
 
 ![Screen shot of KC6F SDR on Windows](screenShot.jpg?raw=true "Screen Shot")
