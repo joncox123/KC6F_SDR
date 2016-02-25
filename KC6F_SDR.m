@@ -9,7 +9,6 @@
 close all force;
 
 SR_DLL_NAME = 'SRDLL';
-SR_DLL_H_PATH = 'SRDLL.h';
 addpath('PE0FKO_SR_DLL');
 
 % Parameters
@@ -35,7 +34,7 @@ audioDevFileName = 'audio_device_choice3.mat';
 
 [dspIQ_RX, dspAudioIn, dspIQ_TX, dspAudioOut] = openADC_DAC_Interfaces(IQ_RX_Dev, IQ_TX_Dev, Audio_Input_Dev, Audio_Output_Dev, params);
 
-[isSrOpen, warnings] = openSoftrock(SR_DLL_NAME, SR_DLL_H_PATH);
+[isSrOpen, warnings] = openSoftrock(SR_DLL_NAME);
 if isSrOpen
     Main_Event_Loop(dspIQ_RX, dspAudioIn, dspIQ_TX, dspAudioOut, params); 
 end

@@ -1,10 +1,10 @@
-function [isOpen, warnings] = openSoftrock(SR_DLL_NAME, SR_DLL_H_PATH)
+function [isOpen, warnings] = openSoftrock(SR_DLL_NAME)
     % Load the PE0FKL SoftRock Si570 control library
     if (libisloaded(SR_DLL_NAME))
         unloadlibrary(SR_DLL_NAME);
     end
     disp('Loading PE0FKL Softrock Si570 control DLL...');
-    [notfound,warnings] = loadlibrary(SR_DLL_NAME, SR_DLL_H_PATH,'alias',SR_DLL_NAME);
+    [notfound,warnings] = loadlibrary(SR_DLL_NAME);
     if (~isempty(warnings))
         disp(['Warnings while loading library. Please check warnings string for more info.']);
     end
